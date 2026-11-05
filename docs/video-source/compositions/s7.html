@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #FBFAF7; overflow: hidden; }
+    #s7-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #128C7E 0%, #0F766E 55%, #0B4F48 100%); }
+    #s7-c { position: absolute; left: 0; right: 0; top: 370px; text-align: center; font-size: 120px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; }
+    #s7-c div { display: block; }
+    #s7-lock { position: absolute; left: 0; right: 0; top: 340px; display: flex; justify-content: center; align-items: center; gap: 40px; }
+    #s7-icon { width: 200px; height: 200px; }
+    #s7-word { font-size: 160px; font-weight: 900; letter-spacing: -0.045em; }
+    #s7-url { position: absolute; left: 0; right: 0; top: 640px; text-align: center; }
+    #s7-url span { display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 46px; background: #FBFAF7; color: #0B5A54; padding: 22px 40px; border-radius: 16px; font-weight: 700; }
+    #s7-tag { position: absolute; left: 0; right: 0; top: 790px; text-align: center; font-size: 34px; opacity: .85; }
+  </style>
+  <div id="root" data-composition-id="s7" data-width="1920" data-height="1080">
+    <div id="s7-bgwrap" class="clip" data-start="0" data-duration="6.5"><div id="s7-bg"></div></div>
+    <div id="s7-cwrap" class="clip" data-start="0" data-duration="2.9">
+      <div id="s7-c"><div id="s7-c1">Runs on your Mac.</div><div id="s7-c2">Private by default.</div></div>
+    </div>
+    <div id="s7-endwrap" class="clip" data-start="2.9" data-duration="3.6">
+      <div id="s7-lock"><img id="s7-icon" src="assets/icon.svg" alt="Magpie"><div id="s7-word">Magpie</div></div>
+      <div id="s7-url"><span>github.com/EeshanBembi/magpie</span></div>
+      <div id="s7-tag">Open source · macOS · free</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s7-bg", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.5, ease: "power3.inOut" }, 0);
+    tl.fromTo("#s7-c1", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.3);
+    tl.fromTo("#s7-c2", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.9);
+    tl.to("#s7-c", { scale: 0.9, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.55);
+    tl.fromTo("#s7-icon", { y: -300, rotation: -30, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 3.0);
+    tl.fromTo("#s7-word", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power3.out" }, 3.4);
+    tl.fromTo("#s7-url span", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 3.8);
+    tl.fromTo("#s7-tag", { opacity: 0 }, { opacity: 0.85, duration: 0.4 }, 4.2);
+    window.__timelines["s7"] = tl;
+  </script>
+</template>

@@ -1,0 +1,55 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FBFAF7; font-family: Inter, sans-serif; color: #1C1B18; overflow: hidden; }
+    #s1-clock { position: absolute; left: 140px; top: 400px; font-size: 150px; font-weight: 900; letter-spacing: -0.04em; }
+    #s1-clocklabel { position: absolute; left: 146px; top: 580px; font-size: 34px; color: #6E6A60; font-weight: 400; }
+    .s1-card { position: absolute; background: #fff; border: 1px solid rgba(20,20,19,.09); border-radius: 18px; box-shadow: 0 24px 60px rgba(20,20,19,.12); }
+    #s1-slack { left: 760px; top: 330px; width: 1020px; padding: 40px 48px; }
+    .s1-app { font-size: 30px; font-weight: 700; color: #6E6A60; margin-bottom: 18px; display: flex; gap: 14px; align-items: center; }
+    .s1-dot { width: 18px; height: 18px; border-radius: 5px; display: inline-block; }
+    #s1-name { font-size: 34px; font-weight: 700; margin-bottom: 10px; }
+    #s1-msg { font-size: 40px; line-height: 1.35; }
+    .s1-win { width: 900px; height: 120px; padding: 0 36px; display: flex; align-items: center; gap: 20px; font-size: 32px; }
+    .s1-win b { font-weight: 700; }
+    .s1-win span { color: #6E6A60; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div id="s1-clockwrap" class="clip" data-start="0" data-duration="4">
+      <div id="s1-clock">8:47</div>
+      <div id="s1-clocklabel">Tuesday morning</div>
+    </div>
+    <div id="s1-slackwrap" class="clip" data-start="0" data-duration="4">
+      <div id="s1-slack" class="s1-card">
+        <div class="s1-app"><i class="s1-dot" style="background:#9F2F5A"></i>Slack · #design</div>
+        <div id="s1-name">Priya Singh</div>
+        <div id="s1-msg">Morning! Can you send the updated contract to legal by noon?</div>
+      </div>
+    </div>
+    <div id="s1-wins" class="clip" data-start="0" data-duration="4" data-layout-allow-overlap>
+      <div id="s1-w1" class="s1-card s1-win" data-layout-allow-occlusion style="left:740px;top:236px"><i class="s1-dot" style="background:#5B8A2E"></i><b>Mail</b><span>Contract review - Priya Patel</span></div>
+      <div id="s1-w2" class="s1-card s1-win" data-layout-allow-occlusion style="left:776px;top:328px"><i class="s1-dot" style="background:#2E3F9F"></i><b>Code</b><span>contract.py - magpie</span></div>
+      <div id="s1-w3" class="s1-card s1-win" data-layout-allow-occlusion style="left:812px;top:420px"><i class="s1-dot" style="background:#5B8A2E"></i><b>Safari</b><span>Q4 roadmap - Notion</span></div>
+      <div id="s1-w4" class="s1-card s1-win" data-layout-allow-occlusion style="left:848px;top:512px"><i class="s1-dot" style="background:#1F9A86"></i><b>zoom.us</b><span>Zoom Meeting - Weekly sync</span></div>
+      <div id="s1-w5" class="s1-card s1-win" data-layout-allow-occlusion style="left:884px;top:604px"><i class="s1-dot" style="background:#7E8F2A"></i><b>Figma</b><span>Onboarding v3 - Figma</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s1-slack", { y: 0 }, { y: -12, duration: 1.2, ease: "power2.out" }, 0);
+    tl.fromTo("#s1-clock", { x: 0 }, { x: 0, duration: 0.1 }, 0);
+    
+    const wins = ["#s1-w1", "#s1-w2", "#s1-w3", "#s1-w4", "#s1-w5"];
+    wins.forEach((w, i) => {
+      tl.fromTo(w, { x: 700, rotation: 0, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, 1.3 + i * 0.32);
+    });
+    tl.to("#s1-slack", { scale: 0.94, filter: "blur(3px)", duration: 1.6, ease: "power1.inOut" }, 1.4);
+    const t = { m: 0 };
+    tl.fromTo(t, { m: 0 }, { m: 185, duration: 2.0, ease: "power2.in", onUpdate: () => {
+      const total = 8 * 60 + 47 + Math.round(t.m);
+      const h = Math.floor(total / 60), mm = total % 60;
+      document.querySelector("#s1-clock").textContent = h + ":" + String(mm).padStart(2, "0");
+    } }, 1.3);
+    tl.to("#s1-clocklabel", { opacity: 0, duration: 0.3 }, 2.6);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>

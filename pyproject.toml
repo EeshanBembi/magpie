@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "magpie"
+version = "0.1.0"
+description = "A private, local-first memory assistant for macOS"
+requires-python = ">=3.14"
+license = { text = "MIT" }
+authors = [{ name = "Magpie" }]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "pillow",
+    "mcp",
+    "segno",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+magpie = "magpie.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["magpie"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "macos: real macOS integration test (OCR / helper / screen)",
+]

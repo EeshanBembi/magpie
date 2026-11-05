@@ -1,0 +1,25 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; overflow: hidden; }
+    #s3-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #128C7E 0%, #0F766E 55%, #0B4F48 100%); }
+    #s3-lock { position: absolute; left: 0; right: 0; top: 330px; display: flex; justify-content: center; align-items: center; gap: 48px; }
+    #s3-icon { width: 240px; height: 240px; }
+    #s3-word { font-size: 190px; font-weight: 900; letter-spacing: -0.045em; color: #FBFAF7; }
+    #s3-line { position: absolute; left: 0; right: 0; top: 660px; text-align: center; font-size: 64px; font-weight: 700; color: #FBFAF7; letter-spacing: -0.02em; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1920" data-height="1080">
+    <div id="s3-bgwrap" class="clip" data-start="0" data-duration="3"><div id="s3-bg"></div></div>
+    <div id="s3-lockwrap" class="clip" data-start="0" data-duration="3">
+      <div id="s3-lock"><img id="s3-icon" src="assets/icon.svg" alt="Magpie"><div id="s3-word">Magpie</div></div>
+      <div id="s3-line">Your Mac remembers what you saw</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s3-bg", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(80% at 50% 50%)", duration: 0.5, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s3-icon", { scale: 0.4, rotation: -20, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 0.3);
+    tl.fromTo("#s3-word", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power3.out" }, 0.6);
+    tl.fromTo("#s3-line", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.2);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>

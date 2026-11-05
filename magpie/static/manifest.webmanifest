@@ -1,0 +1,44 @@
+{
+  "name": "Magpie",
+  "short_name": "Magpie",
+  "description": "A private, local-first memory assistant for your Mac.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FBFAF7",
+  "theme_color": "#0F766E",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ask",
+      "short_name": "Ask",
+      "url": "/#/ask"
+    },
+    {
+      "name": "Search",
+      "short_name": "Search",
+      "url": "/#/search"
+    },
+    {
+      "name": "Loops",
+      "short_name": "Loops",
+      "url": "/#/loops"
+    }
+  ]
+}

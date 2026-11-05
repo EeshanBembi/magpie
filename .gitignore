@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+helper/.build/
+app/.build/
+dist/
+app/Sources/Magpie/BakedRepoPath.swift
+opencode.json
+.DS_Store
+*.db
+*.db-shm
+*.db-wal

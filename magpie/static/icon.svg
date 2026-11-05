@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Magpie">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#128C7E"/>
+      <stop offset="0.55" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0B4F48"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5EEAD4"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path fill="#FBFAF7" d="M398 132c-14-8-32-12-52-12-52 0-96 30-112 74l-56 148c-4 10 4 16 10 8l44-60c10-14 26-24 44-28l66-14c26-6 46-26 52-50 6-24-2-44 4-66z"/>
+  <path fill="url(#sheen)" d="M132 388c-6 16 2 24 12 16 52-42 108-96 156-148-40 14-72 46-92 84-14 26-40 34-76 48z" opacity="0.9"/>
+  <path fill="#141413" d="M136 182c-18 0-32 4-32 20 0 12 10 20 24 20 16 0 28-12 28-24 0-10-8-16-20-16z"/>
+  <circle cx="146" cy="196" r="7" fill="#FBFAF7"/>
+  <path fill="#D97706" d="M132 216l-38 16c-6 2-6 8 2 8l44-4c8-2 4-18-8-20z"/>
+  <path fill="#FBFAF7" d="M226 210c0-30 26-54 58-54s58 24 58 54-26 54-58 54-58-24-58-54z" opacity="0.14"/>
+</svg>

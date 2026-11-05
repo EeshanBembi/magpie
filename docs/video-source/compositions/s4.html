@@ -1,0 +1,70 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #F4F2EC; font-family: Inter, sans-serif; color: #1C1B18; overflow: hidden; }
+    #s4-cap { position: absolute; left: 200px; top: 58px; font-size: 64px; font-weight: 700; letter-spacing: -0.025em; }
+    #s4-cap em { font-style: normal; color: #0F766E; }
+    #s4-panel { position: absolute; left: 200px; top: 180px; width: 1520px; height: 840px; background: #FBFAF7; border: 1px solid rgba(20,20,19,.09); border-radius: 22px; box-shadow: 0 24px 60px rgba(20,20,19,.12); }
+    #s4-head { position: absolute; left: 56px; top: 40px; font-size: 34px; font-weight: 700; }
+    #s4-rec { position: absolute; right: 56px; top: 36px; font-size: 28px; padding: 8px 20px; border: 1px solid rgba(20,20,19,.16); border-radius: 999px; display: flex; gap: 10px; align-items: center; }
+    #s4-rec i { width: 12px; height: 12px; background: #16A34A; border-radius: 50%; display: inline-block; }
+    #s4-user { position: absolute; right: 80px; top: 140px; font-size: 38px; padding: 22px 32px; background: #E3EFEC; border-radius: 22px; }
+    #s4-label { position: absolute; left: 80px; top: 270px; font-size: 28px; font-weight: 700; color: #6E6A60; }
+    #s4-ans { position: absolute; left: 80px; top: 318px; width: 1340px; font-size: 46px; line-height: 1.35; }
+    #s4-ans span { display: inline-block; margin-right: 0.26em; }
+    #s4-ans sup { font-size: 26px; color: #0F766E; font-weight: 700; }
+    #s4-chips { position: absolute; left: 80px; top: 470px; display: flex; gap: 18px; }
+    .s4-chip { font-size: 30px; font-weight: 700; color: #0B5A54; background: rgba(15,118,110,.12); padding: 14px 26px; border-radius: 999px; }
+    #s4-input { position: absolute; left: 80px; right: 80px; bottom: 50px; height: 96px; border: 1px solid rgba(20,20,19,.16); border-radius: 22px; background: #fff; font-size: 32px; color: #6E6A60; display: flex; align-items: center; padding-left: 36px; }
+    #s4-src { position: absolute; left: 430px; top: 420px; width: 1100px; background: #fff; border-radius: 22px; padding: 44px 52px; box-shadow: 0 30px 80px rgba(20,20,19,.25); border: 1px solid rgba(20,20,19,.09); }
+    #s4-src h3 { font-size: 40px; font-weight: 700; margin-bottom: 8px; }
+    #s4-src .m { font-size: 28px; color: #6E6A60; margin-bottom: 28px; }
+    #s4-src .q { font-size: 36px; line-height: 1.4; background: #F4F2EC; border-radius: 14px; padding: 26px 30px; }
+    #s4-src .q b { color: #0B5A54; background-image: linear-gradient(rgba(94,234,212,.55), rgba(94,234,212,.55)); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+    #s4-cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1920" data-height="1080">
+    <div id="s4-capwrap" class="clip" data-start="0" data-duration="10">
+      <div id="s4-cap">Ask in plain words. <em>Get the source.</em></div>
+    </div>
+    <div id="s4-panelwrap" class="clip" data-start="0" data-duration="10" data-layout-allow-overlap>
+      <div id="s4-panel">
+        <div id="s4-head">Ask</div>
+        <div id="s4-rec"><i></i>Recording</div>
+        <div id="s4-user">What did Priya ask me to send to legal?</div>
+        <div id="s4-label">Magpie</div>
+        <div id="s4-ans"><span>According</span><span>to</span><span>memory<sup>1</sup>,</span><span>Priya</span><span>asked</span><span>me</span><span>to</span><span>send</span><span>the</span><span>updated</span><span>contract</span><span>to</span><span>legal</span><span>by</span><span>noon.</span></div>
+        <div id="s4-chips"><div id="s4-c1" class="s4-chip">[1] Slack · 8:47</div><div id="s4-c2" class="s4-chip">[2] Mail · 9:05</div><div id="s4-c3" class="s4-chip">[3] Safari · 10:04</div></div>
+        <div id="s4-input">Ask Magpie anything about your day…</div>
+      </div>
+    </div>
+    <div id="s4-srcwrap" class="clip" data-start="5.4" data-duration="4.6">
+      <div id="s4-src" data-layout-allow-occlusion>
+        <h3>Slack</h3>
+        <div class="m">Tue 3 Nov, 8:47 — #design - Priya Singh</div>
+        <div class="q">Priya Singh: Morning! Can you send <b>the updated contract to legal by noon?</b> Also the redlines from Sam look good.</div>
+      </div>
+    </div>
+    <div id="s4-curwrap" class="clip" data-start="4" data-duration="6">
+      <svg id="s4-cursor" viewBox="0 0 32 32"><path d="M6 3 L6 25 L12 19.5 L16 28.5 L19.5 27 L15.6 18.2 L23.5 18 Z" fill="#1C1B18" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s4-panel", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0);
+    tl.fromTo("#s4-cap", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+    tl.fromTo("#s4-user", { scale: 0.6, opacity: 0, transformOrigin: "100% 50%" }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.5);
+    tl.fromTo("#s4-label", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.1);
+    tl.fromTo("#s4-ans span", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.18, stagger: 0.12, ease: "power2.out" }, 1.3);
+    tl.fromTo(".s4-chip", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.13, ease: "back.out(1.6)" }, 3.3);
+    // cursor: enters from bottom right, lands on chip [1] (root coords ~ 410, 690)
+    tl.fromTo("#s4-cursor", { x: 1500, y: 1100 }, { x: 395, y: 680, duration: 0.9, ease: "power2.inOut" }, 4.1);
+    tl.to("#s4-cursor", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, 5.15);
+    tl.to("#s4-c1", { backgroundColor: "#0F766E", color: "#ffffff", duration: 0.12 }, 5.2);
+    tl.fromTo("#s4-src", { scale: 0.25, opacity: 0, transformOrigin: "0% 100%" }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 5.4);
+    tl.to("#s4-panel", { filter: "blur(4px)", duration: 0.4 }, 5.4);
+    tl.to("#s4-cursor", { x: 1700, y: 1150, duration: 0.6, ease: "power2.in" }, 6.0);
+    tl.fromTo("#s4-src .q b", { backgroundSize: "0% 38%" }, { backgroundSize: "100% 38%", duration: 0.7, ease: "power2.inOut" }, 6.3);
+    tl.to("#s4-src", { scale: 1.07, duration: 3.2, ease: "power1.inOut" }, 6.6);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>

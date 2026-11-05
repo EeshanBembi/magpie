@@ -1,0 +1,24 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FBFAF7; font-family: Inter, sans-serif; color: #1C1B18; overflow: hidden; }
+    #s2-time { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-size: 300px; font-weight: 900; letter-spacing: -0.05em; }
+    #s2-q { position: absolute; left: 0; right: 0; top: 440px; text-align: center; font-size: 120px; font-weight: 900; letter-spacing: -0.035em; }
+    #s2-q span { display: inline-block; margin: 0 0.12em; }
+    #s2-sub { position: absolute; left: 0; right: 0; top: 610px; text-align: center; font-size: 40px; color: #6E6A60; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-timewrap" class="clip" data-start="0" data-duration="1.4"><div id="s2-time">11:52</div></div>
+    <div id="s2-qwrap" class="clip" data-start="1.2" data-duration="2.3">
+      <div id="s2-q"><span>What</span><span>did</span><span>Priya</span><span>ask</span><span>me?</span></div>
+      <div id="s2-sub">Eight minutes to noon.</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s2-time", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+    tl.to("#s2-time", { y: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.05);
+    tl.fromTo("#s2-q span", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out", stagger: 0.13 }, 1.25);
+    tl.fromTo("#s2-sub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.75);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>
