@@ -1,8 +1,8 @@
 # Magpie — a private, local-first memory assistant for your Mac
 
-[![Watch the 38-second demo](docs/demo-poster.png)](docs/magpie-demo.mp4)
+[![Watch the 39-second demo](docs/demo-poster.png)](docs/magpie-demo.mp4)
 
-▶ **[Watch the 38-second demo](docs/magpie-demo.mp4)**
+▶ **[Watch the 39-second demo](docs/magpie-demo.mp4)**
 
 Magpie watches what's on your screen, remembers it, and lets you **search it, chat
 with it, get daily journals, track open loops, and take meeting notes**, all on
@@ -158,7 +158,7 @@ See `SPEC.md` for the full design document.
 
 ## Demo video credits
 
-Music generated locally with MusicGen. Sound effects from Freesound via Openverse: most are CC0; these are CC BY 4.0:
+Narration generated locally with [Chatterbox](https://github.com/resemble-ai/chatterbox) (MIT). Music generated locally with MusicGen. Sound effects from Freesound via Openverse: most are CC0; these are CC BY 4.0:
 
 - "Notification Chime" by hykenfreak ([source](https://freesound.org/people/hykenfreak/sounds/202029))
 - "Deep Cinematic Impact" by MeijstroAudio ([source](https://freesound.org/people/MeijstroAudio/sounds/377303))

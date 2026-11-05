@@ -1,0 +1,7 @@
+s1|Eight forty-seven. Priya asks you to get the contract to legal by noon.
+s2|Then your morning happens. So, what did she ask?
+s3|Meet Magpie. Your Mac remembers what you saw.
+s4|Just ask. Magpie answers from your own screen, and every answer shows its source. One click, and there's the exact Slack message.
+s5|Your whole day becomes searchable. And loose ends turn into reminders, in one click.
+s6|It even works from your phone.
+s7|It all runs on your Mac, private by default. Magpie is free and open source.
