@@ -155,3 +155,12 @@ Tools: `search_memory`, `get_timeline`, `get_journal`, `list_open_loops`,
 ```
 
 See `SPEC.md` for the full design document.
+
+## Demo video credits
+
+Music generated locally with MusicGen. Sound effects from Freesound via Openverse: most are CC0; these are CC BY 4.0:
+
+- "Notification Chime" by hykenfreak ([source](https://freesound.org/people/hykenfreak/sounds/202029))
+- "Deep Cinematic Impact" by MeijstroAudio ([source](https://freesound.org/people/MeijstroAudio/sounds/377303))
+
+The video is a [HyperFrames](https://hyperframes.heygen.com) project in `docs/video-source/`.
